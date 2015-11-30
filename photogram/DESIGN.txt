@@ -1,0 +1,10 @@
+Design Documentation:
+
+
+Models:
+
+- Postcard
+    - photoUrl
+    - message
+    - address (object?)
+

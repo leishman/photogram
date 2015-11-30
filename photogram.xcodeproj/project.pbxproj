@@ -8,22 +8,30 @@
 
 /* Begin PBXBuildFile section */
 		A24C698E1C0A62A100A607B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24C698D1C0A62A100A607B4 /* AppDelegate.swift */; };
-		A24C69901C0A62A100A607B4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24C698F1C0A62A100A607B4 /* ViewController.swift */; };
+		A24C69901C0A62A100A607B4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24C698F1C0A62A100A607B4 /* HomeViewController.swift */; };
 		A24C69931C0A62A100A607B4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A24C69911C0A62A100A607B4 /* Main.storyboard */; };
 		A24C69961C0A62A100A607B4 /* photogram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A24C69941C0A62A100A607B4 /* photogram.xcdatamodeld */; };
 		A24C69981C0A62A100A607B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A24C69971C0A62A100A607B4 /* Assets.xcassets */; };
 		A24C699B1C0A62A100A607B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A24C69991C0A62A100A607B4 /* LaunchScreen.storyboard */; };
+		A24C69A41C0A987E00A607B4 /* DESIGN.txt in Resources */ = {isa = PBXBuildFile; fileRef = A24C69A31C0A987E00A607B4 /* DESIGN.txt */; settings = {ASSET_TAGS = (); }; };
+		A24C69A61C0AA45D00A607B4 /* Postcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24C69A51C0AA45D00A607B4 /* Postcard.swift */; settings = {ASSET_TAGS = (); }; };
+		A24C69A81C0AB62200A607B4 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24C69A71C0AB62200A607B4 /* Address.swift */; settings = {ASSET_TAGS = (); }; };
+		A24C69AA1C0B54DE00A607B4 /* NewPostcardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24C69A91C0B54DE00A607B4 /* NewPostcardViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A24C698A1C0A62A100A607B4 /* photogram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = photogram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A24C698D1C0A62A100A607B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A24C698F1C0A62A100A607B4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A24C698F1C0A62A100A607B4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A24C69921C0A62A100A607B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A24C69951C0A62A100A607B4 /* photogram.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = photogram.xcdatamodel; sourceTree = "<group>"; };
 		A24C69971C0A62A100A607B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A24C699A1C0A62A100A607B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A24C699C1C0A62A100A607B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A24C69A31C0A987E00A607B4 /* DESIGN.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DESIGN.txt; sourceTree = "<group>"; };
+		A24C69A51C0AA45D00A607B4 /* Postcard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Postcard.swift; sourceTree = "<group>"; };
+		A24C69A71C0AB62200A607B4 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		A24C69A91C0B54DE00A607B4 /* NewPostcardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostcardViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,27 @@
 		A24C698C1C0A62A100A607B4 /* photogram */ = {
 			isa = PBXGroup;
 			children = (
-				A24C698D1C0A62A100A607B4 /* AppDelegate.swift */,
-				A24C698F1C0A62A100A607B4 /* ViewController.swift */,
+				A24C698F1C0A62A100A607B4 /* HomeViewController.swift */,
+				A24C69A91C0B54DE00A607B4 /* NewPostcardViewController.swift */,
+				A24C69A51C0AA45D00A607B4 /* Postcard.swift */,
+				A24C69A71C0AB62200A607B4 /* Address.swift */,
 				A24C69911C0A62A100A607B4 /* Main.storyboard */,
+				A24C69A21C0A6E6500A607B4 /* Supporting Files */,
+			);
+			path = photogram;
+			sourceTree = "<group>";
+		};
+		A24C69A21C0A6E6500A607B4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A24C698D1C0A62A100A607B4 /* AppDelegate.swift */,
 				A24C69971C0A62A100A607B4 /* Assets.xcassets */,
 				A24C69991C0A62A100A607B4 /* LaunchScreen.storyboard */,
 				A24C699C1C0A62A100A607B4 /* Info.plist */,
+				A24C69A31C0A987E00A607B4 /* DESIGN.txt */,
 				A24C69941C0A62A100A607B4 /* photogram.xcdatamodeld */,
 			);
-			path = photogram;
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +145,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A24C69A41C0A987E00A607B4 /* DESIGN.txt in Resources */,
 				A24C699B1C0A62A100A607B4 /* LaunchScreen.storyboard in Resources */,
 				A24C69981C0A62A100A607B4 /* Assets.xcassets in Resources */,
 				A24C69931C0A62A100A607B4 /* Main.storyboard in Resources */,
@@ -138,9 +159,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A24C69901C0A62A100A607B4 /* ViewController.swift in Sources */,
+				A24C69901C0A62A100A607B4 /* HomeViewController.swift in Sources */,
+				A24C69AA1C0B54DE00A607B4 /* NewPostcardViewController.swift in Sources */,
+				A24C69A61C0AA45D00A607B4 /* Postcard.swift in Sources */,
 				A24C698E1C0A62A100A607B4 /* AppDelegate.swift in Sources */,
 				A24C69961C0A62A100A607B4 /* photogram.xcdatamodeld in Sources */,
+				A24C69A81C0AB62200A607B4 /* Address.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +276,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = photogram/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs193p.aleish.photogram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -263,6 +288,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = photogram/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.stanford.cs193p.aleish.photogram;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -288,6 +314,7 @@
 				A24C69A11C0A62A100A607B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

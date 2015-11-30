@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model name="Test1.xcdatamodel" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
-    <elements/>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="14E46" minimumToolsVersion="Automatic">
+    <entity name="Address" syncable="YES">
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="postal_code" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="postcard" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Postcard" inverseName="addresses" inverseEntity="Postcard" syncable="YES"/>
+    </entity>
+    <entity name="Postcard" syncable="YES">
+        <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photo_url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="addresses" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Address" inverseName="postcard" inverseEntity="Address" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Postcard" positionX="-63" positionY="-36" width="128" height="88"/>
+        <element name="Address" positionX="151" positionY="-72" width="128" height="133"/>
+    </elements>
 </model>

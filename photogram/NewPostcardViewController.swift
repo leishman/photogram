@@ -11,10 +11,6 @@ import MobileCoreServices
 
 class NewPostcardViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate {
 
-    @IBAction func nextButton(sender: UIButton) {
-        
-    }
-
     @IBOutlet weak var scrollView: UIScrollView! {
         didSet {
             scrollView.contentSize = imageView.frame.size
@@ -22,8 +18,55 @@ class NewPostcardViewController: UIViewController, UIImagePickerControllerDelega
         }
     }
     
-    private var imageView = UIImageView()
+    @IBAction func nextView(sender: UIButton) {
+        savePostcard()
+    }
     
+    private func getNewImage() -> UIImage {
+//        UIGraphicsBeginImageContextWithOptions(scrollView.bounds.size, false, scrollView.zoomScale)
+//        scrollView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+//        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+//        return newImage
+        
+        let scale = 1 / scrollView.zoomScale
+        print(scrollView.zoomScale)
+        print(scrollView.contentOffset)
+        print(scale)
+        let visibleRect = CGRectMake(scrollView.contentOffset.x * scale, scrollView.contentOffset.y * scale, scrollView.bounds.size.width * scale, scrollView.bounds.size.height * scale)
+        
+        let ref: CGImageRef = CGImageCreateWithImageInRect(image!.CGImage, visibleRect)!
+        return UIImage(CGImage: ref)
+        
+    }
+
+    private func savePostcard() {
+        let newImage = getNewImage()
+        if image != nil {
+            if let imageData = UIImageJPEGRepresentation(newImage, 1.0),
+                let documentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first {
+                    let unique = "\(NSDate.timeIntervalSinceReferenceDate()).jpg"
+                    let url = documentsDirectory.URLByAppendingPathComponent(unique)
+                    if imageData.writeToURL(url, atomically: true) {
+                        writePostcardToDb(unique)
+                    }
+            }
+        }
+    }
+    
+    private func writePostcardToDb(url: String) {
+        
+        func cb(p: Postcard) {
+            performSegueWithIdentifier("postcardTextViewSegue", sender: self)
+        }
+        
+        if let context = AppDelegate.managedObjectContext {
+            context.performBlock {
+                self.postcard = Postcard.createWithImageUrl(url, inManagedContext: context, callback: cb)
+            }
+        }
+    }
+    
+    private var imageView = UIImageView()
     
     private var image: UIImage? {
         get {
@@ -36,6 +79,8 @@ class NewPostcardViewController: UIViewController, UIImagePickerControllerDelega
             imageView.sizeToFit()
         }
     }
+    
+    private var postcard: Postcard?
     
     @IBOutlet weak var nextButton: UIButton!
     
@@ -54,16 +99,12 @@ class NewPostcardViewController: UIViewController, UIImagePickerControllerDelega
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    // add image to scroll view for cropping and editing
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
         self.image = image
-        imageView.frame = CGRect(origin: CGPointZero, size: scrollView.frame.size)
-//        let ih = image.size.height
-        let iw = image.size.width
-//        let sh = self.scrollView.bounds.height
-        let sw = scrollView.bounds.width
-//        let scale =
         
-//        scrollView.zoomScale = sw / iw
+        // ensure image is scaled to fit in the initial scroll window
+        imageView.frame = CGRect(origin: CGPointZero, size: scrollView.frame.size)
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -75,5 +116,14 @@ class NewPostcardViewController: UIViewController, UIImagePickerControllerDelega
         super.viewDidLoad()
         nextButton.hidden = true
         scrollView.addSubview(imageView)
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+
+        if let destination = segue.destinationViewController as? PostcardTextViewController {
+            
+//            destination.postcard = Postcard.last(inManagedContext: AppDelegate.managedObjectContext!)
+        }
     }
 }

@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="14E46" minimumToolsVersion="Automatic">
-    <entity name="Address" syncable="YES">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="14F27" minimumToolsVersion="Automatic">
+    <entity name="Address" representedClassName=".Address" syncable="YES">
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="postal_code" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="postcard" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Postcard" inverseName="addresses" inverseEntity="Postcard" syncable="YES"/>
+        <relationship name="postcards" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Postcard" inverseName="address" inverseEntity="Postcard" syncable="YES"/>
     </entity>
-    <entity name="Postcard" syncable="YES">
+    <entity name="Postcard" representedClassName=".Postcard" syncable="YES">
+        <attribute name="created_at" attributeType="Date" syncable="YES"/>
         <attribute name="message" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="photo_url" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="addresses" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Address" inverseName="postcard" inverseEntity="Address" syncable="YES"/>
+        <relationship name="address" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Address" inverseName="postcards" inverseEntity="Address" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Postcard" positionX="-63" positionY="-36" width="128" height="88"/>
         <element name="Address" positionX="151" positionY="-72" width="128" height="133"/>
+        <element name="Postcard" positionX="-63" positionY="-36" width="128" height="103"/>
     </elements>
 </model>

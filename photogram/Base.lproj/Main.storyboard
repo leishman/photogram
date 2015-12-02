@@ -60,10 +60,59 @@
             </objects>
             <point key="canvasLocation" x="806" y="351"/>
         </scene>
-        <!--New Postcard View Controller-->
+        <!--Add Text-->
+        <scene sceneID="o3n-CV-Hu5">
+            <objects>
+                <viewController title="Add Text" id="WtM-dj-cWP" customClass="PostcardTextViewController" customModule="photogram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mmE-BR-x8R"/>
+                        <viewControllerLayoutGuide type="bottom" id="Bev-eM-jtK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="m1l-ba-i4q">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zri-OW-5aV">
+                                <rect key="frame" x="20" y="94" width="560" height="353"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wBp-vq-aKR">
+                                        <rect key="frame" x="0.0" y="0.0" width="560" height="374"/>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="asdfa" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fpD-aX-JTg">
+                                        <rect key="frame" x="239" y="71" width="83" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="wBp-vq-aKR" secondAttribute="trailing" id="5oh-bw-8Xy"/>
+                                    <constraint firstItem="wBp-vq-aKR" firstAttribute="leading" secondItem="Zri-OW-5aV" secondAttribute="leading" id="6Xt-Iu-1DH"/>
+                                    <constraint firstItem="wBp-vq-aKR" firstAttribute="top" secondItem="Zri-OW-5aV" secondAttribute="top" id="hgw-Qg-A8y"/>
+                                    <constraint firstAttribute="width" secondItem="wBp-vq-aKR" secondAttribute="height" multiplier="3:2" id="wLg-Hn-fYq"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Zri-OW-5aV" firstAttribute="top" secondItem="mmE-BR-x8R" secondAttribute="bottom" constant="30" id="HTT-pl-f9R"/>
+                            <constraint firstItem="Zri-OW-5aV" firstAttribute="trailing" secondItem="m1l-ba-i4q" secondAttribute="trailingMargin" id="KY8-eK-RG8"/>
+                            <constraint firstItem="Zri-OW-5aV" firstAttribute="leading" secondItem="m1l-ba-i4q" secondAttribute="leadingMargin" id="cUt-E4-oJC"/>
+                            <constraint firstItem="Bev-eM-jtK" firstAttribute="top" secondItem="Zri-OW-5aV" secondAttribute="bottom" constant="153" id="ub4-cW-xM0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="image" destination="wBp-vq-aKR" id="Pml-bh-4iN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iS0-rC-C0d" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2230" y="351"/>
+        </scene>
+        <!--New Postcard-->
         <scene sceneID="3C2-hi-0En">
             <objects>
-                <viewController id="Trw-CT-bk8" customClass="NewPostcardViewController" customModule="photogram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="New Postcard" id="Trw-CT-bk8" customClass="NewPostcardViewController" customModule="photogram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TFW-6m-iFS"/>
                         <viewControllerLayoutGuide type="bottom" id="mrP-lk-Un6"/>
@@ -72,56 +121,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ipv-h7-f3J">
-                                <rect key="frame" x="263" y="419" width="74" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ipv-h7-f3J">
+                                <rect key="frame" x="264" y="466" width="74" height="30"/>
                                 <state key="normal" title="Add Image"/>
                                 <connections>
                                     <action selector="selectPhoto" destination="Trw-CT-bk8" eventType="touchUpInside" id="Fru-HV-MVm"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.01" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="q4p-0w-LRK">
-                                <rect key="frame" x="60" y="81" width="480" height="320"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.01" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="q4p-0w-LRK">
+                                <rect key="frame" x="20" y="81" width="560" height="371"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="q4p-0w-LRK" secondAttribute="height" multiplier="3:2" id="Jua-f6-PRV"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIk-rw-FyK">
-                                <rect key="frame" x="284" y="468" width="32" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIk-rw-FyK">
+                                <rect key="frame" x="282" y="519" width="32" height="30"/>
                                 <state key="normal" title="Next"/>
                                 <connections>
-                                    <action selector="nextButton:" destination="Trw-CT-bk8" eventType="touchUpInside" id="Gwz-2K-1ci"/>
-                                    <action selector="nextScreen:" destination="Trw-CT-bk8" eventType="touchUpInside" id="KvF-kP-yri"/>
+                                    <action selector="nextView:" destination="Trw-CT-bk8" eventType="touchUpInside" id="eZ6-pS-ece"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ipv-h7-f3J" firstAttribute="centerX" secondItem="dIk-rw-FyK" secondAttribute="centerX" id="3O0-Of-eN5"/>
-                            <constraint firstItem="q4p-0w-LRK" firstAttribute="top" secondItem="TFW-6m-iFS" secondAttribute="bottom" constant="30" id="4g8-Eo-8Be"/>
                             <constraint firstItem="dIk-rw-FyK" firstAttribute="top" secondItem="ipv-h7-f3J" secondAttribute="bottom" constant="19" id="5rc-yg-rjX"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="q4p-0w-LRK" secondAttribute="trailing" constant="40" id="7Re-Ff-zSj"/>
-                            <constraint firstItem="q4p-0w-LRK" firstAttribute="leading" secondItem="7bh-pf-N3x" secondAttribute="leading" constant="150" id="Pto-mL-06r"/>
-                            <constraint firstItem="ipv-h7-f3J" firstAttribute="top" secondItem="q4p-0w-LRK" secondAttribute="bottom" constant="94" id="R29-mg-PUw"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="q4p-0w-LRK" secondAttribute="trailing" id="7Re-Ff-zSj"/>
                             <constraint firstItem="ipv-h7-f3J" firstAttribute="top" secondItem="q4p-0w-LRK" secondAttribute="bottom" constant="18" id="R78-u5-shO"/>
-                            <constraint firstItem="q4p-0w-LRK" firstAttribute="centerX" secondItem="7bh-pf-N3x" secondAttribute="centerX" id="Rdq-Zs-hZF"/>
                             <constraint firstItem="q4p-0w-LRK" firstAttribute="top" secondItem="TFW-6m-iFS" secondAttribute="bottom" constant="17" id="T1A-yL-PEe"/>
-                            <constraint firstItem="q4p-0w-LRK" firstAttribute="leading" secondItem="7bh-pf-N3x" secondAttribute="leadingMargin" constant="40" id="gLP-PF-fX4"/>
-                            <constraint firstAttribute="bottom" secondItem="q4p-0w-LRK" secondAttribute="bottom" constant="306" id="l0Y-gT-ZoT"/>
+                            <constraint firstItem="q4p-0w-LRK" firstAttribute="leading" secondItem="7bh-pf-N3x" secondAttribute="leadingMargin" id="gLP-PF-fX4"/>
                             <constraint firstItem="q4p-0w-LRK" firstAttribute="centerX" secondItem="dIk-rw-FyK" secondAttribute="centerX" id="lba-6d-Dpt"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="4g8-Eo-8Be"/>
-                                <exclude reference="Pto-mL-06r"/>
-                                <exclude reference="Rdq-Zs-hZF"/>
-                                <exclude reference="l0Y-gT-ZoT"/>
-                                <exclude reference="R29-mg-PUw"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
                         <outlet property="nextButton" destination="dIk-rw-FyK" id="stc-da-O1Q"/>
                         <outlet property="scrollView" destination="q4p-0w-LRK" id="gzK-3i-qD2"/>
+                        <segue destination="WtM-dj-cWP" kind="show" identifier="postcardTextViewSegue" id="L0C-EL-mdw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M23-me-Szt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -141,7 +176,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Postcards go here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czp-E0-Hpx">
-                                <rect key="frame" x="230" y="150" width="139.5" height="20.5"/>
+                                <rect key="frame" x="230" y="150" width="140" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>

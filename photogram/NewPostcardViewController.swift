@@ -22,17 +22,12 @@ class NewPostcardViewController: UIViewController, UIImagePickerControllerDelega
         savePostcard()
     }
     
+    // Contains logic to capture visible section of original image
+    // In other words this performs the crop logic and retuns the new cropped image
     private func getNewImage() -> UIImage {
-//        UIGraphicsBeginImageContextWithOptions(scrollView.bounds.size, false, scrollView.zoomScale)
-//        scrollView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
-//        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-//        return newImage
-        
-        let scale = 1 / scrollView.zoomScale
-        print(scrollView.zoomScale)
-        print(scrollView.contentOffset)
-        print(scale)
-        let visibleRect = CGRectMake(scrollView.contentOffset.x * scale, scrollView.contentOffset.y * scale, scrollView.bounds.size.width * scale, scrollView.bounds.size.height * scale)
+        let scalew = (1 / scrollView.zoomScale) * (image!.size.width / scrollView.bounds.width)
+        let scaleh = (1 / scrollView.zoomScale) * (image!.size.height / scrollView.bounds.height)
+        let visibleRect = CGRectMake(scrollView.contentOffset.x * scalew, scrollView.contentOffset.y * scaleh, scrollView.bounds.size.width * scalew, scrollView.bounds.size.height * scaleh)
         
         let ref: CGImageRef = CGImageCreateWithImageInRect(image!.CGImage, visibleRect)!
         return UIImage(CGImage: ref)

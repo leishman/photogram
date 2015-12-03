@@ -32,4 +32,19 @@ class Postcard: NSManagedObject {
             return nil
         }
     }
+    
+    
+    
+    func updateUrl(url: String, inManagedContext context: NSManagedObjectContext, callback: (Void)->Void) -> Postcard? {
+        let request = NSFetchRequest(entityName: "Postcard")
+        request.sortDescriptors = [NSSortDescriptor(key: "created_at", ascending: false)]
+        request.fetchLimit = 1
+        if let p = (try? context.executeFetchRequest(request))?.first as? Postcard {
+            p.photo_url = url
+            callback()
+            return p
+        } else {
+            return nil
+        }
+    }
 }

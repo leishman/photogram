@@ -18,16 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jZo-5E-Vra">
-                                <rect key="frame" x="0.0" y="280" width="600" height="320"/>
-                                <connections>
-                                    <segue destination="b3S-4T-cjD" kind="embed" id="ASH-tg-ekp"/>
-                                </connections>
-                            </containerView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8x2-vV-xOb">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8x2-vV-xOb">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="238"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARs-VZ-ajJ">
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARs-VZ-ajJ">
                                         <rect key="frame" x="8" y="105" width="584" height="33"/>
                                         <color key="backgroundColor" red="0.49019607840000001" green="0.74901960779999999" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -53,17 +47,31 @@
                                     <constraint firstItem="ARs-VZ-ajJ" firstAttribute="trailing" secondItem="8x2-vV-xOb" secondAttribute="trailingMargin" id="dsU-Ni-4fv"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jpq-va-h12">
+                                <rect key="frame" x="20" y="246" width="560" height="334"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XrO-yc-Ha1">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="RRZ-Op-fDn">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jZo-5E-Vra" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="3ZA-uI-1sS"/>
-                            <constraint firstAttribute="trailing" secondItem="jZo-5E-Vra" secondAttribute="trailing" id="5d5-qC-9dn"/>
-                            <constraint firstItem="8x2-vV-xOb" firstAttribute="trailing" secondItem="jZo-5E-Vra" secondAttribute="trailing" id="8cJ-RR-A0O"/>
                             <constraint firstItem="8x2-vV-xOb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Bw2-MW-xKC"/>
-                            <constraint firstItem="jZo-5E-Vra" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="216" id="HVM-NI-oiA"/>
-                            <constraint firstItem="jZo-5E-Vra" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="If2-KE-zBq"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8x2-vV-xOb" secondAttribute="bottom" constant="362" id="M50-Tc-yNk"/>
-                            <constraint firstItem="8x2-vV-xOb" firstAttribute="leading" secondItem="jZo-5E-Vra" secondAttribute="leading" id="fk7-Jl-iqP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="awQ-LB-o3b"/>
@@ -387,11 +395,11 @@
                         <viewControllerLayoutGuide type="bottom" id="yS7-Ep-RGe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="VCn-nL-LGs">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Postcards go here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czp-E0-Hpx">
-                                <rect key="frame" x="230" y="150" width="139.5" height="20.5"/>
+                                <rect key="frame" x="230" y="290" width="139.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -424,7 +432,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0jM-AK-lU5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6" y="351"/>
+            <point key="canvasLocation" x="82" y="351"/>
         </scene>
     </scenes>
 </document>

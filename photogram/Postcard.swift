@@ -65,4 +65,14 @@ class Postcard: NSManagedObject {
             }
         }
     }
+    
+    // fetch all postcards in DB
+    class func all(inManagedContext context: NSManagedObjectContext) -> [Postcard] {
+        let request = NSFetchRequest(entityName: "Postcard")
+        if let ps = (try? context.executeFetchRequest(request)) as? [Postcard] {
+            return ps
+        } else {
+            return []
+        }
+    }
 }

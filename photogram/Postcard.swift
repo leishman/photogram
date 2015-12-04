@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import Contacts
 
 class Postcard: NSManagedObject {
     class func createWithImageUrl(url: String, inManagedContext context: NSManagedObjectContext, callback: (Postcard)->Void) -> Postcard? {
@@ -45,6 +46,23 @@ class Postcard: NSManagedObject {
             return p
         } else {
             return nil
+        }
+    }
+    
+    func createOrUpdateAddress(address: CNPostalAddress, inManagedContext context: NSManagedObjectContext) {
+        let request = NSFetchRequest(entityName: "Address")
+        request.predicate = NSPredicate(format: "street = %@", address.street)
+        if let a = (try? context.executeFetchRequest(request))?.first as? Address {
+            self.address = a
+        } else {
+            if let a = NSEntityDescription.insertNewObjectForEntityForName("Address", inManagedObjectContext: context) as? Address {
+                a.state = address.state
+                a.street = address.street
+                a.country = address.country
+                a.city = address.city
+                a.postal_code = address.postalCode
+                a.postcards = [self]
+            }
         }
     }
 }

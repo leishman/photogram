@@ -8,11 +8,13 @@
 
 import UIKit
 import CoreData
+import Contacts
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var contactStore = CNContactStore()
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -108,6 +110,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 NSLog("Unresolved error \(nserror), \(nserror.userInfo)")
                 abort()
             }
+        }
+    }
+    
+    // MARK: - Shared functionality
+    // adapted from: http://www.appcoda.com/ios-contacts-framework/
+    func showMessage(message: String) {
+        // create alert controller
+        let alertController = UIAlertController(title: "Photogram", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let dismissAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) {(action) -> Void in }
+        alertController.addAction(dismissAction)
+        let pushedViewControllers = (self.window?.rootViewController as! UINavigationController).viewControllers
+        let presentedViewController = pushedViewControllers[pushedViewControllers.count - 1]
+        
+        // display alert
+        presentedViewController.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    class func getAppDelegate() -> AppDelegate {
+        return UIApplication.sharedApplication().delegate as! AppDelegate
+    }
+    
+    // MARK: - Contact request functionality
+    // adapted from: http://www.appcoda.com/ios-contacts-framework/
+    func requestContactAccess(completionHandler: (accessGranted: Bool) -> Void) {
+        let authorizationStatus = CNContactStore.authorizationStatusForEntityType(CNEntityType.Contacts)
+        
+        switch authorizationStatus {
+            case .Authorized:
+                completionHandler(accessGranted: true)
+            case .Denied, .NotDetermined:
+                self.contactStore.requestAccessForEntityType(CNEntityType.Contacts, completionHandler: { (access, accessError) -> Void in
+                    if access {
+                        completionHandler(accessGranted: access)
+                    }
+                    else {
+                        if authorizationStatus == CNAuthorizationStatus.Denied {
+                            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                                let message = "\(accessError!.localizedDescription)\n\nPlease allow the app to access your contacts through the Settings."
+                                self.showMessage(message)
+                            })
+                        }
+                    }
+                })
+                
+            default:
+                completionHandler(accessGranted: false)
         }
     }
 

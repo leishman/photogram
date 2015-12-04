@@ -8,3 +8,11 @@ Models:
     - message
     - address (object?)
 
+APIs used:
+- UIPickerView
+- UITextField
+- CoreImage
+- UIToolbar
+- Camera
+- Contacts
+

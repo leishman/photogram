@@ -56,7 +56,6 @@ class PostcardTextViewController: UIViewController, UITextFieldDelegate {
             performSegueWithIdentifier("postcardMessageViewSegue", sender: self)
         }
         let con = AppDelegate.managedObjectContext!
-        
         postcard!.updateUrl(str, inManagedContext: con, callback: cb)
 
     }

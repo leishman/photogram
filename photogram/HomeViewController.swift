@@ -20,14 +20,19 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func fetchPostcards() {
         func cb(pcards: [Postcard]) -> Void {
             postcards = pcards
-            postcardCollectionView.reloadData()
+//            dispatch_async(dispatch_get_main_queue(), {
+            self.postcardCollectionView.reloadData()
+//            });
+//            self.postcardCollectionView.reloadData()
         }
         
         postcards = Postcard.all(inManagedContext: AppDelegate.managedObjectContext!, callback: cb)
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        postcardCollectionView.dataSource = self
         fetchPostcards()
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -37,21 +42,26 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         // Dispose of any resources that can be recreated.
     }
     
-    private func photoForIndexPath(indexPath: NSIndexPath) {
+    private func photoForIndexPath(indexPath: NSIndexPath) -> UIImage? {
         // TODO
+        let pcard = postcards[indexPath.item]
         
+        return pcard.getUIImage()
     }
     
     // MARK: UICollectionViewDelegate methods
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+        
         return 1
     }
     
     func collectionView(collectionView: UICollectionView, didDeselectItemAtIndexPath indexPath: NSIndexPath) {
+        print("selected item")
         // TODO
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(postcards.count)
         return postcards.count
     }
     
@@ -59,6 +69,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         // TODO
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PostcardViewCell
         let photo = photoForIndexPath(indexPath)
+        cell.postcardImage.image = photo
         cell.backgroundColor = UIColor.blueColor()
         return cell
     }

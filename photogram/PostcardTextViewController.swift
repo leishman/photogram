@@ -13,14 +13,7 @@ import AudioToolbox
 class PostcardTextViewController: UIViewController, UITextFieldDelegate {
     var postcard: Postcard?  {
         didSet {
-            if let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString? {
-                
-                let fileManager = NSFileManager.defaultManager()
-                let url = paths.stringByAppendingPathComponent(postcard!.photo_url!)
-                if(fileManager.fileExistsAtPath(url)) {
-                    self.image.image = UIImage(contentsOfFile: url)
-                }
-            }
+            self.image.image = postcard?.getUIImage()
         }
     }
     

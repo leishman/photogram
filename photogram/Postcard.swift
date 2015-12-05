@@ -9,6 +9,7 @@
 import Foundation
 import CoreData
 import Contacts
+import UIKit
 
 class Postcard: NSManagedObject {
     class func createWithImageUrl(url: String, inManagedContext context: NSManagedObjectContext, callback: (Postcard)->Void) -> Postcard? {
@@ -70,9 +71,23 @@ class Postcard: NSManagedObject {
     class func all(inManagedContext context: NSManagedObjectContext, callback: ([Postcard]) -> Void) -> [Postcard] {
         let request = NSFetchRequest(entityName: "Postcard")
         if let ps = (try? context.executeFetchRequest(request)) as? [Postcard] {
+            callback(ps)
             return ps
         } else {
+            callback([])
             return []
         }
+    }
+    
+    func getUIImage() -> UIImage? {
+        if let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString? {
+            
+            let fileManager = NSFileManager.defaultManager()
+            let url = paths.stringByAppendingPathComponent(self.photo_url!)
+            if(fileManager.fileExistsAtPath(url)) {
+                return UIImage(contentsOfFile: url)
+            }
+        }
+        return nil
     }
 }

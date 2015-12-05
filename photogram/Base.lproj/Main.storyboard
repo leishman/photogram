@@ -18,10 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8x2-vV-xOb">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8x2-vV-xOb">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="238"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARs-VZ-ajJ">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARs-VZ-ajJ">
                                         <rect key="frame" x="8" y="105" width="584" height="33"/>
                                         <color key="backgroundColor" red="0.49019607840000001" green="0.74901960779999999" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -47,34 +47,50 @@
                                     <constraint firstItem="ARs-VZ-ajJ" firstAttribute="trailing" secondItem="8x2-vV-xOb" secondAttribute="trailingMargin" id="dsU-Ni-4fv"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jpq-va-h12">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jpq-va-h12">
                                 <rect key="frame" x="20" y="246" width="560" height="334"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XrO-yc-Ha1">
-                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="itemSize" width="121" height="108"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="RRZ-Op-fDn">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="RRZ-Op-fDn" customClass="PostcardViewCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="121" height="108"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="121" height="108"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jcW-By-5Of">
+                                                    <rect key="frame" x="0.0" y="0.0" width="121" height="108"/>
+                                                </imageView>
+                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <outlet property="postcardImage" destination="jcW-By-5Of" id="vIe-a9-BUa"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="jpq-va-h12" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="0q3-rQ-NVB"/>
+                            <constraint firstItem="jpq-va-h12" firstAttribute="centerX" secondItem="8x2-vV-xOb" secondAttribute="centerX" id="3Hd-Pa-Q5x"/>
                             <constraint firstItem="8x2-vV-xOb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Bw2-MW-xKC"/>
+                            <constraint firstItem="jpq-va-h12" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="JZy-Og-EDf"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8x2-vV-xOb" secondAttribute="bottom" constant="362" id="M50-Tc-yNk"/>
+                            <constraint firstAttribute="bottom" secondItem="jpq-va-h12" secondAttribute="bottom" constant="20" symbolic="YES" id="dwz-92-OcM"/>
+                            <constraint firstItem="jpq-va-h12" firstAttribute="top" secondItem="8x2-vV-xOb" secondAttribute="bottom" constant="8" symbolic="YES" id="iqT-Fx-HVi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="awQ-LB-o3b"/>
+                    <connections>
+                        <outlet property="postcardCollectionView" destination="jpq-va-h12" id="sKW-Ck-dDM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

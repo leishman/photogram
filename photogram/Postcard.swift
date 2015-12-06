@@ -90,4 +90,9 @@ class Postcard: NSManagedObject {
         }
         return nil
     }
+    
+    func updateMessage(message: String, inManagedObjectContext context: NSManagedObjectContext, callback: (Void) -> Void) {
+        self.message = message
+        callback()
+    }
 }

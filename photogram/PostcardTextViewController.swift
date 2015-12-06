@@ -24,6 +24,7 @@ class PostcardTextViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func getNewImage() -> UIImage {
+        
         UIGraphicsBeginImageContextWithOptions(containerView.bounds.size, false, 1)
         containerView.drawViewHierarchyInRect(containerView.bounds, afterScreenUpdates: true)
         let image = UIGraphicsGetImageFromCurrentImageContext()

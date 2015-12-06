@@ -9,7 +9,7 @@
 import UIKit
 import MobileCoreServices
 
-class NewPostcardViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+class NewPostcardViewController: DismissKeyboardController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UIScrollViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource, KeyboardToolbarDelegate {
     
     // Instance vars
     private var imageView = UIImageView()
@@ -135,11 +135,11 @@ class NewPostcardViewController: UIViewController, UIImagePickerControllerDelega
         return imageView
     }
     
-    func donePicker() {
+    func doneKeyboard() {
         filterSelectField.resignFirstResponder()
     }
     
-    func cancelPicker() {
+    func cancelKeyboard() {
         filterSelectField.resignFirstResponder()
     }
     
@@ -153,23 +153,6 @@ class NewPostcardViewController: UIViewController, UIImagePickerControllerDelega
         let cg_image = CIContext().createCGImage(new_ci_image, fromRect: new_ci_image.extent)
         image = UIImage(CGImage: cg_image)
 //        image = UIImage(CImage: filter.outputImage!)
-    }
-    
-    // create toolbar to act as accessory view for UIPickerView
-    // it will contain "Done" and "Cancel" buttons for resigning first-responder status
-    // Used http://stackoverflow.com/a/31728914/2302781 as a guideline
-    private func createToolbar() -> UIToolbar {
-        let toolbar = UIToolbar()
-        toolbar.barStyle = UIBarStyle.Default
-        toolbar.translucent = true
-        toolbar.sizeToFit()
-        
-        // add done and cancel buttons to toolbar
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Plain, target: self, action: "donePicker")
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "donePicker")
-        toolbar.setItems([cancelButton, spaceButton, doneButton], animated: false)
-        return toolbar
     }
     
     override func viewDidLoad() {

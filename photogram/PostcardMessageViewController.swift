@@ -10,7 +10,7 @@ import UIKit
 import Contacts
 import ContactsUI
 
-class PostcardMessageViewController: UIViewController, UIPickerViewDelegate, CNContactPickerDelegate {
+class PostcardMessageViewController: DismissKeyboardController, KeyboardToolbarDelegate, UIPickerViewDelegate, CNContactPickerDelegate {
     var postcard_created_at: NSDate?
     private var showErrorMessage = false
 
@@ -40,15 +40,27 @@ class PostcardMessageViewController: UIViewController, UIPickerViewDelegate, CNC
     }
     
     override func viewDidLoad() {
-
+        messageField.layer.cornerRadius = 5
+        messageField.layer.borderColor = UIColor.blackColor().CGColor
+        messageField.layer.borderWidth = 1
+        messageField.inputAccessoryView = createToolbar()
         self.automaticallyAdjustsScrollViewInsets = false
-//        messageField.setContentOffset(CGPointZero, animated: false)
         postcard = Postcard.last(inManagedContext: AppDelegate.managedObjectContext!)
         requestAccess()
     }
     
+
+    @IBAction func previewAction(sender: UIButton) {
+        func cb() {
+            performSegueWithIdentifier("previewPostcard", sender: sender)
+        }
+        let context = AppDelegate.managedObjectContext
+        postcard!.updateMessage(messageField.text, inManagedObjectContext: context!, callback: cb)
+    }
+    
+    
     // adapted from http://www.appcoda.com/ios-contacts-framework/
-    func showContacts(sender: AnyObject) {
+    private func showContacts(sender: AnyObject) {
         let contactPickerViewController = CNContactPickerViewController()
         contactPickerViewController.delegate = self
         presentViewController(contactPickerViewController, animated: true, completion: nil)
@@ -58,11 +70,11 @@ class PostcardMessageViewController: UIViewController, UIPickerViewDelegate, CNC
         showContacts(sender)
     }
     
-    func saveAddressForPostcard(address: CNPostalAddress) {
+    private func saveAddressForPostcard(address: CNPostalAddress) {
         postcard!.createOrUpdateAddress(address, inManagedContext: AppDelegate.managedObjectContext!)
     }
     
-    func displayAddress(addr: CNPostalAddress) {
+    private func displayAddress(addr: CNPostalAddress) {
         let formatter = CNPostalAddressFormatter()
         let str = formatter.stringFromPostalAddress(addr)
         addressOutlet.text = str
@@ -70,7 +82,6 @@ class PostcardMessageViewController: UIViewController, UIPickerViewDelegate, CNC
     
     
     func contactPicker(picker: CNContactPickerViewController, didSelectContact contact: CNContact) {
-        print(contact)
         if(contact.postalAddresses.isEmpty) {
             showErrorMessage = true
             return
@@ -79,6 +90,14 @@ class PostcardMessageViewController: UIViewController, UIPickerViewDelegate, CNC
             saveAddressForPostcard(addr)
             displayAddress(addr)
         }
+    }
+    
+    func doneKeyboard() {
+        messageField.resignFirstResponder()
+    }
+        
+    func cancelKeyboard() {
+        messageField.resignFirstResponder()
     }
     
     func requestAccess() -> Bool {
@@ -93,7 +112,6 @@ class PostcardMessageViewController: UIViewController, UIPickerViewDelegate, CNC
                     try contactsStore.enumerateContactsWithFetchRequest(request) { contact, stop in
                         if(!contact.postalAddresses.isEmpty){
                             contacts.append(contact)
-                            print(contact.postalAddresses[0])
                         }
                     }
                 } catch {

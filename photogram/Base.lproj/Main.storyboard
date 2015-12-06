@@ -18,16 +18,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8x2-vV-xOb">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="238"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jpq-va-h12">
+                                <rect key="frame" x="20" y="246" width="560" height="334"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="2" minimumInteritemSpacing="2" id="XrO-yc-Ha1">
+                                    <size key="itemSize" width="530" height="353"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="PostcardCell" id="RRZ-Op-fDn" customClass="PostcardViewCell" customModule="photogram" customModuleProvider="target">
+                                        <rect key="frame" x="15" y="64" width="530" height="353"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="530" height="353"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jcW-By-5Of">
+                                                    <rect key="frame" x="8" y="-5" width="514" height="240"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="240" id="8Gd-hy-nIx"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="jcW-By-5Of" firstAttribute="top" secondItem="RRZ-Op-fDn" secondAttribute="topMargin" constant="-13" id="rPv-vz-A46"/>
+                                            <constraint firstItem="jcW-By-5Of" firstAttribute="trailing" secondItem="RRZ-Op-fDn" secondAttribute="trailingMargin" id="tgC-gu-odL"/>
+                                            <constraint firstItem="jcW-By-5Of" firstAttribute="leading" secondItem="RRZ-Op-fDn" secondAttribute="leadingMargin" id="yuc-mk-CUh"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="postcardImage" destination="jcW-By-5Of" id="vIe-a9-BUa"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ozJ-oe-sjM">
+                                <rect key="frame" x="0.0" y="64" width="600" height="136"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARs-VZ-ajJ">
-                                        <rect key="frame" x="8" y="105" width="584" height="33"/>
+                                        <rect key="frame" x="8" y="76" width="584" height="33"/>
                                         <color key="backgroundColor" red="0.49019607840000001" green="0.74901960779999999" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="33" id="Wzo-XM-EU7"/>
+                                            <constraint firstAttribute="height" constant="33" id="nrr-KL-2V5"/>
                                         </constraints>
-                                        <state key="normal" title="+ Create Postcard">
+                                        <state key="normal" title="+ Create New Postcard">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -39,57 +76,43 @@
                                             <segue destination="Trw-CT-bk8" kind="show" id="ROH-F3-cn8"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="You've created 0 Postcards" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ifs-1a-MTc">
+                                        <rect key="frame" x="8" y="25" width="584" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="pVO-bR-4XH"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.77910052910052907" green="0.77910052910052907" blue="0.77910052910052907" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="ARs-VZ-ajJ" firstAttribute="top" secondItem="8x2-vV-xOb" secondAttribute="top" constant="105" id="0qI-es-liU"/>
-                                    <constraint firstItem="ARs-VZ-ajJ" firstAttribute="leading" secondItem="8x2-vV-xOb" secondAttribute="leadingMargin" id="Glg-Px-4Aj"/>
-                                    <constraint firstItem="ARs-VZ-ajJ" firstAttribute="trailing" secondItem="8x2-vV-xOb" secondAttribute="trailingMargin" id="dsU-Ni-4fv"/>
+                                    <constraint firstItem="ARs-VZ-ajJ" firstAttribute="top" secondItem="Ifs-1a-MTc" secondAttribute="bottom" constant="30" id="Bj4-wB-Bmx"/>
+                                    <constraint firstItem="Ifs-1a-MTc" firstAttribute="leading" secondItem="ozJ-oe-sjM" secondAttribute="leading" constant="8" id="Jfy-IY-a5l"/>
+                                    <constraint firstItem="Ifs-1a-MTc" firstAttribute="top" secondItem="ozJ-oe-sjM" secondAttribute="top" constant="25" id="KfB-MO-Xf1"/>
+                                    <constraint firstItem="ARs-VZ-ajJ" firstAttribute="leading" secondItem="ozJ-oe-sjM" secondAttribute="leading" constant="8" id="abG-sc-AMR"/>
+                                    <constraint firstAttribute="bottom" secondItem="ARs-VZ-ajJ" secondAttribute="bottom" constant="27" id="czM-Ci-rZG"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ifs-1a-MTc" secondAttribute="trailing" constant="8" id="dUO-eu-pjE"/>
+                                    <constraint firstAttribute="trailing" secondItem="ARs-VZ-ajJ" secondAttribute="trailing" constant="8" id="mV3-Xm-eCz"/>
                                 </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="jpq-va-h12">
-                                <rect key="frame" x="20" y="246" width="560" height="334"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="XrO-yc-Ha1">
-                                    <size key="itemSize" width="121" height="108"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PostcardCell" id="RRZ-Op-fDn" customClass="PostcardViewCell" customModule="photogram" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="121" height="108"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="121" height="108"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jcW-By-5Of">
-                                                    <rect key="frame" x="0.0" y="0.0" width="121" height="108"/>
-                                                </imageView>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <connections>
-                                            <outlet property="postcardImage" destination="jcW-By-5Of" id="vIe-a9-BUa"/>
-                                        </connections>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jpq-va-h12" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="0q3-rQ-NVB"/>
-                            <constraint firstItem="jpq-va-h12" firstAttribute="centerX" secondItem="8x2-vV-xOb" secondAttribute="centerX" id="3Hd-Pa-Q5x"/>
-                            <constraint firstItem="8x2-vV-xOb" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Bw2-MW-xKC"/>
-                            <constraint firstItem="jpq-va-h12" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="JZy-Og-EDf"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8x2-vV-xOb" secondAttribute="bottom" constant="362" id="M50-Tc-yNk"/>
-                            <constraint firstAttribute="bottom" secondItem="jpq-va-h12" secondAttribute="bottom" constant="20" symbolic="YES" id="dwz-92-OcM"/>
-                            <constraint firstItem="jpq-va-h12" firstAttribute="top" secondItem="8x2-vV-xOb" secondAttribute="bottom" constant="8" symbolic="YES" id="iqT-Fx-HVi"/>
+                            <constraint firstItem="ozJ-oe-sjM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="2ZB-2h-sJY"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="jpq-va-h12" secondAttribute="leading" id="8vU-Jg-EiM"/>
+                            <constraint firstItem="jpq-va-h12" firstAttribute="top" secondItem="ozJ-oe-sjM" secondAttribute="bottom" constant="46" id="9bK-yq-tOV"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="jpq-va-h12" secondAttribute="bottom" constant="20" id="Dfa-bK-k8T"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jpq-va-h12" secondAttribute="trailing" id="Pdr-wj-cc3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ozJ-oe-sjM" secondAttribute="trailing" id="U2a-sg-AcX"/>
+                            <constraint firstItem="ozJ-oe-sjM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="w5a-zp-5Dk"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="awQ-LB-o3b"/>
                     <connections>
                         <outlet property="postcardCollectionView" destination="jpq-va-h12" id="sKW-Ck-dDM"/>
+                        <outlet property="postcardLabel" destination="Ifs-1a-MTc" id="BRG-Cc-o75"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -109,7 +132,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zri-OW-5aV">
-                                <rect key="frame" x="20" y="94" width="560" height="353"/>
+                                <rect key="frame" x="20" y="94" width="560" height="374"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wBp-vq-aKR">
                                         <rect key="frame" x="0.0" y="0.0" width="560" height="374"/>
@@ -123,10 +146,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" secondItem="Zri-OW-5aV" secondAttribute="height" multiplier="3:2" id="5ar-Nb-1hQ"/>
                                     <constraint firstAttribute="trailing" secondItem="wBp-vq-aKR" secondAttribute="trailing" id="5oh-bw-8Xy"/>
                                     <constraint firstItem="wBp-vq-aKR" firstAttribute="leading" secondItem="Zri-OW-5aV" secondAttribute="leading" id="6Xt-Iu-1DH"/>
                                     <constraint firstItem="wBp-vq-aKR" firstAttribute="top" secondItem="Zri-OW-5aV" secondAttribute="top" id="hgw-Qg-A8y"/>
-                                    <constraint firstAttribute="width" secondItem="wBp-vq-aKR" secondAttribute="height" multiplier="3:2" id="wLg-Hn-fYq"/>
+                                    <constraint firstAttribute="bottom" secondItem="wBp-vq-aKR" secondAttribute="bottom" id="i1h-5H-RTM"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TOw-mP-FJE">
@@ -172,7 +196,6 @@
                             <constraint firstItem="TOw-mP-FJE" firstAttribute="trailing" secondItem="EA7-HJ-fYs" secondAttribute="trailing" id="Pi4-MP-NmE"/>
                             <constraint firstItem="Zri-OW-5aV" firstAttribute="leading" secondItem="m1l-ba-i4q" secondAttribute="leadingMargin" id="cUt-E4-oJC"/>
                             <constraint firstItem="TOw-mP-FJE" firstAttribute="leading" secondItem="Zri-OW-5aV" secondAttribute="leading" id="h6N-ot-NJy"/>
-                            <constraint firstItem="Bev-eM-jtK" firstAttribute="top" secondItem="Zri-OW-5aV" secondAttribute="bottom" constant="153" id="ub4-cW-xM0"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="xAJ-ME-AUc" appends="YES" id="gDP-So-El4"/>
@@ -206,9 +229,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="PPx-7W-NXu">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="white" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="PPx-7W-NXu">
                                 <rect key="frame" x="20" y="121" width="560" height="114"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="114" id="F5a-J8-Ek6"/>
                                 </constraints>
@@ -221,14 +243,14 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKo-CK-Of3">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKo-CK-Of3">
                                 <rect key="frame" x="20" y="266" width="63" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XqU-Ix-8Nj">
-                                <rect key="frame" x="20" y="346" width="560" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XqU-Ix-8Nj">
+                                <rect key="frame" x="20" y="469" width="560" height="30"/>
                                 <color key="backgroundColor" red="0.49019607840000001" green="0.74901960779999999" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="POE-eS-sfp"/>
@@ -240,8 +262,14 @@
                                     <action selector="addAddress:" destination="Dff-yJ-8vh" eventType="touchUpInside" id="b5j-OE-w3A"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XcU-B7-kUe">
-                                <rect key="frame" x="20" y="384" width="560" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Address Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="78F-rQ-cJH">
+                                <rect key="frame" x="20" y="312" width="560" height="21"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XcU-B7-kUe">
+                                <rect key="frame" x="20" y="507" width="560" height="30"/>
                                 <color key="backgroundColor" red="0.49019607840000001" green="0.74901960779999999" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="kMP-BY-M2U"/>
@@ -249,16 +277,10 @@
                                 <state key="normal" title="Preview and Send">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="previewAction:" destination="Dff-yJ-8vh" eventType="touchUpInside" id="R5z-3I-YhS"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="78F-rQ-cJH">
-                                <rect key="frame" x="20" y="312" width="560" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="vyH-MK-68L"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -284,11 +306,59 @@
                     <connections>
                         <outlet property="addressOutlet" destination="78F-rQ-cJH" id="UzA-a0-kBZ"/>
                         <outlet property="messageField" destination="PPx-7W-NXu" id="dpg-jW-hnU"/>
+                        <segue destination="fek-xN-Gbf" kind="show" identifier="previewPostcard" id="3hG-ys-CUY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j2p-1d-aMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2964" y="351"/>
+        </scene>
+        <!--Postcard Preview View Controller-->
+        <scene sceneID="u87-K1-2wL">
+            <objects>
+                <viewController id="fek-xN-Gbf" customClass="PostcardPreviewViewController" customModule="photogram" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YGA-EO-jcE"/>
+                        <viewControllerLayoutGuide type="bottom" id="xiL-Uj-0Ft"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="qat-eG-dbj">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufP-lV-fHk">
+                                <rect key="frame" x="20" y="550" width="560" height="30"/>
+                                <color key="backgroundColor" red="0.49019607840000001" green="0.74901960779999999" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Send">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2o-ha-R78">
+                                <rect key="frame" x="60" y="72" width="480" height="320"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="M2o-ha-R78" secondAttribute="height" multiplier="3:2" id="IV8-e0-5vl"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="ufP-lV-fHk" secondAttribute="bottom" constant="20" symbolic="YES" id="2vT-2Z-RqF"/>
+                            <constraint firstItem="M2o-ha-R78" firstAttribute="top" secondItem="YGA-EO-jcE" secondAttribute="bottom" constant="8" symbolic="YES" id="5DE-hT-rzy"/>
+                            <constraint firstAttribute="bottom" secondItem="M2o-ha-R78" secondAttribute="bottom" constant="208" id="9g2-JN-p4x"/>
+                            <constraint firstItem="ufP-lV-fHk" firstAttribute="leading" secondItem="qat-eG-dbj" secondAttribute="leadingMargin" id="MvW-lw-6Z7"/>
+                            <constraint firstItem="M2o-ha-R78" firstAttribute="centerX" secondItem="qat-eG-dbj" secondAttribute="centerX" id="XTJ-su-vzz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="M2o-ha-R78" secondAttribute="trailing" constant="40" id="Y3X-93-LJz"/>
+                            <constraint firstItem="ufP-lV-fHk" firstAttribute="centerX" secondItem="M2o-ha-R78" secondAttribute="centerX" id="YMw-KN-gRi"/>
+                            <constraint firstItem="M2o-ha-R78" firstAttribute="leading" secondItem="qat-eG-dbj" secondAttribute="leadingMargin" constant="40" id="ck1-zI-Vfa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="postcardView" destination="M2o-ha-R78" id="qTv-qL-eV6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tgo-YI-Zcj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3686" y="351"/>
         </scene>
         <!--New Postcard-->
         <scene sceneID="3C2-hi-0En">
@@ -302,8 +372,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ipv-h7-f3J">
-                                <rect key="frame" x="20" y="466" width="560" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ipv-h7-f3J">
+                                <rect key="frame" x="20" y="468" width="560" height="30"/>
                                 <color key="backgroundColor" red="0.49019607843137253" green="0.74901960784313726" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="j4q-Jg-OA3"/>
@@ -322,8 +392,8 @@
                                     <action selector="selectPhoto" destination="Trw-CT-bk8" eventType="touchUpInside" id="Fru-HV-MVm"/>
                                 </connections>
                             </button>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.01" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="q4p-0w-LRK">
-                                <rect key="frame" x="20" y="81" width="560" height="371"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.01" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="q4p-0w-LRK">
+                                <rect key="frame" x="20" y="81" width="560" height="373.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="q4p-0w-LRK" secondAttribute="height" multiplier="3:2" id="Jua-f6-PRV"/>
                                 </constraints>
@@ -353,7 +423,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I05-5N-twG">
-                                <rect key="frame" x="20" y="500" width="560" height="30"/>
+                                <rect key="frame" x="20" y="503" width="560" height="30"/>
                                 <color key="backgroundColor" red="0.1686456513" green="0.41561144979999998" blue="0.82999998330000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="C38-nO-5T8"/>
@@ -401,36 +471,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M23-me-Szt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1532" y="351"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="W2V-XP-HxB">
-            <objects>
-                <viewController id="b3S-4T-cjD" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="HB5-oP-hPB"/>
-                        <viewControllerLayoutGuide type="bottom" id="yS7-Ep-RGe"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="VCn-nL-LGs">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Postcards go here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czp-E0-Hpx">
-                                <rect key="frame" x="230" y="290" width="139.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="czp-E0-Hpx" firstAttribute="centerY" secondItem="VCn-nL-LGs" secondAttribute="centerY" id="FKB-2S-fAS"/>
-                            <constraint firstItem="czp-E0-Hpx" firstAttribute="centerX" secondItem="VCn-nL-LGs" secondAttribute="centerX" id="oM4-AK-9YB"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="08d-3F-9lL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="806" y="1019"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mht-RC-biY">

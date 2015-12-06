@@ -333,7 +333,7 @@
                                 </state>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2o-ha-R78">
-                                <rect key="frame" x="60" y="72" width="480" height="320"/>
+                                <rect key="frame" x="20" y="72" width="560" height="374"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="M2o-ha-R78" secondAttribute="height" multiplier="3:2" id="IV8-e0-5vl"/>
@@ -344,12 +344,10 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="ufP-lV-fHk" secondAttribute="bottom" constant="20" symbolic="YES" id="2vT-2Z-RqF"/>
                             <constraint firstItem="M2o-ha-R78" firstAttribute="top" secondItem="YGA-EO-jcE" secondAttribute="bottom" constant="8" symbolic="YES" id="5DE-hT-rzy"/>
-                            <constraint firstAttribute="bottom" secondItem="M2o-ha-R78" secondAttribute="bottom" constant="208" id="9g2-JN-p4x"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="M2o-ha-R78" secondAttribute="trailing" id="A68-4L-bwg"/>
                             <constraint firstItem="ufP-lV-fHk" firstAttribute="leading" secondItem="qat-eG-dbj" secondAttribute="leadingMargin" id="MvW-lw-6Z7"/>
-                            <constraint firstItem="M2o-ha-R78" firstAttribute="centerX" secondItem="qat-eG-dbj" secondAttribute="centerX" id="XTJ-su-vzz"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="M2o-ha-R78" secondAttribute="trailing" constant="40" id="Y3X-93-LJz"/>
                             <constraint firstItem="ufP-lV-fHk" firstAttribute="centerX" secondItem="M2o-ha-R78" secondAttribute="centerX" id="YMw-KN-gRi"/>
-                            <constraint firstItem="M2o-ha-R78" firstAttribute="leading" secondItem="qat-eG-dbj" secondAttribute="leadingMargin" constant="40" id="ck1-zI-Vfa"/>
+                            <constraint firstItem="M2o-ha-R78" firstAttribute="leading" secondItem="qat-eG-dbj" secondAttribute="leadingMargin" id="ck1-zI-Vfa"/>
                         </constraints>
                     </view>
                     <connections>
@@ -393,7 +391,7 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.01" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="q4p-0w-LRK">
-                                <rect key="frame" x="20" y="81" width="560" height="373.5"/>
+                                <rect key="frame" x="20" y="81" width="560" height="374"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="q4p-0w-LRK" secondAttribute="height" multiplier="3:2" id="Jua-f6-PRV"/>
                                 </constraints>
@@ -422,7 +420,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I05-5N-twG">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I05-5N-twG">
                                 <rect key="frame" x="20" y="503" width="560" height="30"/>
                                 <color key="backgroundColor" red="0.1686456513" green="0.41561144979999998" blue="0.82999998330000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>

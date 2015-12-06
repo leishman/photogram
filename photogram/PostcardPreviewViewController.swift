@@ -22,9 +22,8 @@ class PostcardPreviewViewController: UIViewController {
                 let fileManager = NSFileManager.defaultManager()
                 let url = paths.stringByAppendingPathComponent(postcard!.photo_url!)
                 if(fileManager.fileExistsAtPath(url)) {
-
-                    self.frontView!.image = UIImage(contentsOfFile: url)
                     self.frontView!.contentMode = .ScaleAspectFit
+                    self.frontView!.image = UIImage(contentsOfFile: url)
                     backView!.postcard = postcard
 
                     setupTapGesture()
@@ -33,8 +32,12 @@ class PostcardPreviewViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//    }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         frontView = UIImageView(frame: CGRect(x: 0, y: 0, width: postcardView.frame.width, height: postcardView.bounds.height))
         backView = PostcardBackUIView(frame: CGRect(x: 0, y: 0, width: postcardView.bounds.width, height: postcardView.bounds.height))
         postcard = Postcard.last(inManagedContext: AppDelegate.managedObjectContext!)
@@ -50,7 +53,6 @@ class PostcardPreviewViewController: UIViewController {
     
     // Adapted from: http://www.codingricky.com/flipping-cards-with-swift-and-uikit/
     func tapped() {
-        
         if (showingBack) {
             UIView.transitionFromView(backView!, toView: frontView!, duration: 1, options: UIViewAnimationOptions.TransitionFlipFromRight, completion: nil)
             

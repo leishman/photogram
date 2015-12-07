@@ -31,7 +31,7 @@ class NewPostcardViewController: DismissKeyboardController, UIImagePickerControl
     
     private var postcard: Postcard?
     
-    let filterOptions = ["Sepia", "Black and White", ""]
+    let filterOptions = ["Sepia", "Black and White", "Vintage"]
     
     let filterPickerView = UIPickerView()
     
@@ -143,17 +143,77 @@ class NewPostcardViewController: DismissKeyboardController, UIImagePickerControl
         filterSelectField.resignFirstResponder()
     }
     
-    // TODO: add more complex filters
-    private func applyFilter(name: String) {
-        let ci_image = CIImage(image: image!)
+    func applySepiaFilter(ci_image: CIImage) -> CIImage {
         let filter = CIFilter(name: "CISepiaTone")!
         filter.setValue(ci_image, forKey: kCIInputImageKey)
         filter.setValue(0.9, forKey:  kCIInputIntensityKey)
-        let new_ci_image = filter.outputImage!
-        let cg_image = CIContext().createCGImage(new_ci_image, fromRect: new_ci_image.extent)
-        image = UIImage(CGImage: cg_image)
-//        image = UIImage(CImage: filter.outputImage!)
+        return filter.outputImage!
+
     }
+    
+    // adapted from: http://www.raywenderlich.com/76285/beginning-core-image-swift
+    func applyVintageFilter(ci_image: CIImage) -> CIImage {
+        let intensity = 0.9
+        // 1
+        let sepia = CIFilter(name:"CISepiaTone")!
+        sepia.setValue(ci_image, forKey:kCIInputImageKey)
+        sepia.setValue(intensity, forKey:"inputIntensity")
+        
+        // 2
+        let random = CIFilter(name:"CIRandomGenerator")!
+        
+        // 3
+        let lighten = CIFilter(name:"CIColorControls")!
+        lighten.setValue(random.outputImage!, forKey:kCIInputImageKey)
+        lighten.setValue(1 - intensity, forKey:"inputBrightness")
+        lighten.setValue(0, forKey:"inputSaturation")
+        
+        // 4
+        let croppedImage = lighten.outputImage!.imageByCroppingToRect(ci_image.extent)
+        
+        // 5
+        let composite = CIFilter(name:"CIHardLightBlendMode")!
+        composite.setValue(sepia.outputImage!, forKey:kCIInputImageKey)
+        composite.setValue(croppedImage, forKey:kCIInputBackgroundImageKey)
+        
+        // 6
+        let vignette = CIFilter(name:"CIVignette")!
+        vignette.setValue(composite.outputImage!, forKey:kCIInputImageKey)
+        vignette.setValue(intensity * 2, forKey:"inputIntensity")
+        vignette.setValue(intensity * 30, forKey:"inputRadius")
+        
+        // 7
+        return vignette.outputImage!
+    }
+    
+    func applyBWFilter(ci_image: CIImage) -> CIImage {
+        let filter = CIFilter(name: "CIColorControls")!
+        
+        filter.setValue(ci_image, forKey: kCIInputImageKey)
+        filter.setValue(0.0, forKey: "inputBrightness")
+        filter.setValue(1.1, forKey: "inputContrast")
+        filter.setValue(0.0, forKey: "inputSaturation")
+        return filter.outputImage!
+    }
+    
+    // TODO: add more complex filters
+    private func applyFilter(name: String) {
+        let ci_image = CIImage(image: image!)!
+        var new_ci_image: CIImage?
+        switch name {
+            case filterOptions[0]:
+                new_ci_image = applySepiaFilter(ci_image)
+            case filterOptions[1]:
+                new_ci_image = applyBWFilter(ci_image)
+            case filterOptions[2]:
+                new_ci_image = applyVintageFilter(ci_image)
+        default:
+            return
+        }
+        
+        let cg_image = CIContext().createCGImage(new_ci_image!, fromRect: new_ci_image!.extent)
+        image = UIImage(CGImage: cg_image)
+        }
     
     override func viewDidLoad() {
         super.viewDidLoad()

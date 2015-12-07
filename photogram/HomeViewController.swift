@@ -39,8 +39,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         postcardCollectionView.dataSource = self
-        fetchPostcards()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        fetchPostcards()
     }
 
     override func didReceiveMemoryWarning() {

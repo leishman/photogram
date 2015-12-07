@@ -24,7 +24,7 @@ class PostcardPreviewViewController: UIViewController {
                 if(fileManager.fileExistsAtPath(url)) {
                     self.frontView!.contentMode = .ScaleAspectFit
                     self.frontView!.image = UIImage(contentsOfFile: url)
-                    backView!.postcard = postcard
+                    self.backView!.postcard = postcard
 
                     setupTapGesture()
                 }
@@ -32,10 +32,6 @@ class PostcardPreviewViewController: UIViewController {
         }
     }
     
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//    }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         frontView = UIImageView(frame: CGRect(x: 0, y: 0, width: postcardView.frame.width, height: postcardView.bounds.height))

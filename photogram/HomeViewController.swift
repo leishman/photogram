@@ -39,6 +39,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
         postcardCollectionView.dataSource = self
+        postcardCollectionView.contentInset = UIEdgeInsets(top: -60, left: 0, bottom: 0, right: 0)
         // Do any additional setup after loading the view, typically from a nib.
     }
     override func viewDidAppear(animated: Bool) {

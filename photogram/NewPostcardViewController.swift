@@ -122,9 +122,18 @@ class NewPostcardViewController: DismissKeyboardController, UIImagePickerControl
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    // ensure all images are landscape to fit the postcard layout
+    func getRotatedImage(img: UIImage) -> UIImage {
+        if (img.imageOrientation == UIImageOrientation.Up || img.imageOrientation == UIImageOrientation.Down) {
+            return img.imageRotatedByDegrees(90, flip: false)
+        }
+        return img
+    }
+    
     // add image to scroll view for cropping and editing
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
-        self.image = image
+
+        self.image = getRotatedImage(image)
         
         // ensure image is scaled to fit in the initial scroll window
         imageView.frame = CGRect(origin: CGPointZero, size: scrollView.frame.size)
@@ -247,9 +256,7 @@ class NewPostcardViewController: DismissKeyboardController, UIImagePickerControl
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let filterName = filterOptions[row]
-//        filterSelectField.text = filterName
         applyFilter(filterName)
-        // TODO set filter
     }
-    
 }
+

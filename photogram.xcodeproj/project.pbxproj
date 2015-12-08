@@ -19,7 +19,7 @@
 		A24C69961C0A62A100A607B4 /* photogram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A24C69941C0A62A100A607B4 /* photogram.xcdatamodeld */; };
 		A24C69981C0A62A100A607B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A24C69971C0A62A100A607B4 /* Assets.xcassets */; };
 		A24C699B1C0A62A100A607B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A24C69991C0A62A100A607B4 /* LaunchScreen.storyboard */; };
-		A24C69A41C0A987E00A607B4 /* DESIGN.txt in Resources */ = {isa = PBXBuildFile; fileRef = A24C69A31C0A987E00A607B4 /* DESIGN.txt */; };
+		A24C69A41C0A987E00A607B4 /* README in Resources */ = {isa = PBXBuildFile; fileRef = A24C69A31C0A987E00A607B4 /* README */; };
 		A24C69A61C0AA45D00A607B4 /* Postcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24C69A51C0AA45D00A607B4 /* Postcard.swift */; };
 		A24C69AA1C0B54DE00A607B4 /* NewPostcardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24C69A91C0B54DE00A607B4 /* NewPostcardViewController.swift */; };
 		A2BD39F21C0D7273000FB9EA /* PostcardTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BD39F11C0D7273000FB9EA /* PostcardTextViewController.swift */; };
@@ -45,7 +45,7 @@
 		A24C69971C0A62A100A607B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A24C699A1C0A62A100A607B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A24C699C1C0A62A100A607B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A24C69A31C0A987E00A607B4 /* DESIGN.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = DESIGN.txt; sourceTree = "<group>"; };
+		A24C69A31C0A987E00A607B4 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
 		A24C69A51C0AA45D00A607B4 /* Postcard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Postcard.swift; sourceTree = "<group>"; };
 		A24C69A91C0B54DE00A607B4 /* NewPostcardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostcardViewController.swift; sourceTree = "<group>"; };
 		A2BD39F11C0D7273000FB9EA /* PostcardTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostcardTextViewController.swift; sourceTree = "<group>"; };
@@ -114,7 +114,7 @@
 				A24C69971C0A62A100A607B4 /* Assets.xcassets */,
 				A24C69991C0A62A100A607B4 /* LaunchScreen.storyboard */,
 				A24C699C1C0A62A100A607B4 /* Info.plist */,
-				A24C69A31C0A987E00A607B4 /* DESIGN.txt */,
+				A24C69A31C0A987E00A607B4 /* README */,
 				A24C69941C0A62A100A607B4 /* photogram.xcdatamodeld */,
 			);
 			name = "Supporting Files";
@@ -178,7 +178,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A24C69A41C0A987E00A607B4 /* DESIGN.txt in Resources */,
+				A24C69A41C0A987E00A607B4 /* README in Resources */,
 				A24C699B1C0A62A100A607B4 /* LaunchScreen.storyboard in Resources */,
 				A24C69981C0A62A100A607B4 /* Assets.xcassets in Resources */,
 				A24C69931C0A62A100A607B4 /* Main.storyboard in Resources */,

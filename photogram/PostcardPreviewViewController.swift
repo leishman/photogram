@@ -18,14 +18,12 @@ class PostcardPreviewViewController: UIViewController {
     var postcard: Postcard? {
         didSet {
             if let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as NSString? {
-                
                 let fileManager = NSFileManager.defaultManager()
                 let url = paths.stringByAppendingPathComponent(postcard!.photo_url!)
                 if(fileManager.fileExistsAtPath(url)) {
                     self.frontView!.contentMode = .ScaleAspectFit
                     self.frontView!.image = UIImage(contentsOfFile: url)
                     self.backView!.postcard = postcard
-
                     setupTapGesture()
                 }
             }
@@ -40,15 +38,15 @@ class PostcardPreviewViewController: UIViewController {
     }
     
     func setupTapGesture() {
-        let singleTap = UITapGestureRecognizer(target: self, action: Selector("tapped"))
+        let singleTap = UITapGestureRecognizer(target: self, action: Selector("tappedCallback"))
         singleTap.numberOfTapsRequired = 1
         postcardView.addGestureRecognizer(singleTap)
         postcardView.userInteractionEnabled = true
         postcardView.addSubview(frontView!)
     }
     
-    // Adapted from: http://www.codingricky.com/flipping-cards-with-swift-and-uikit/
-    func tapped() {
+    // Inspired By: http://www.codingricky.com/flipping-cards-with-swift-and-uikit/
+    func tappedCallback() {
         if (showingBack) {
             UIView.transitionFromView(backView!, toView: frontView!, duration: 1, options: UIViewAnimationOptions.TransitionFlipFromRight, completion: nil)
             

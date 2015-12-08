@@ -325,10 +325,10 @@
             </objects>
             <point key="canvasLocation" x="2964" y="351"/>
         </scene>
-        <!--Postcard Preview View Controller-->
+        <!--Preview-->
         <scene sceneID="u87-K1-2wL">
             <objects>
-                <viewController id="fek-xN-Gbf" customClass="PostcardPreviewViewController" customModule="photogram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Preview" id="fek-xN-Gbf" customClass="PostcardPreviewViewController" customModule="photogram" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YGA-EO-jcE"/>
                         <viewControllerLayoutGuide type="bottom" id="xiL-Uj-0Ft"/>
@@ -351,15 +351,23 @@
                                     <constraint firstAttribute="width" secondItem="M2o-ha-R78" secondAttribute="height" multiplier="3:2" id="IV8-e0-5vl"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap Card to Flip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="leO-0z-jIa">
+                                <rect key="frame" x="240" y="469" width="121" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.81779100530000004" green="0.81779100530000004" blue="0.81779100530000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="ufP-lV-fHk" secondAttribute="bottom" constant="20" symbolic="YES" id="2vT-2Z-RqF"/>
                             <constraint firstItem="M2o-ha-R78" firstAttribute="top" secondItem="YGA-EO-jcE" secondAttribute="bottom" constant="8" symbolic="YES" id="5DE-hT-rzy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="M2o-ha-R78" secondAttribute="trailing" id="A68-4L-bwg"/>
+                            <constraint firstItem="leO-0z-jIa" firstAttribute="top" secondItem="M2o-ha-R78" secondAttribute="bottom" constant="23" id="Ltx-Hc-O70"/>
                             <constraint firstItem="ufP-lV-fHk" firstAttribute="leading" secondItem="qat-eG-dbj" secondAttribute="leadingMargin" id="MvW-lw-6Z7"/>
                             <constraint firstItem="ufP-lV-fHk" firstAttribute="centerX" secondItem="M2o-ha-R78" secondAttribute="centerX" id="YMw-KN-gRi"/>
                             <constraint firstItem="M2o-ha-R78" firstAttribute="leading" secondItem="qat-eG-dbj" secondAttribute="leadingMargin" id="ck1-zI-Vfa"/>
+                            <constraint firstItem="leO-0z-jIa" firstAttribute="centerX" secondItem="qat-eG-dbj" secondAttribute="centerX" id="nZm-3T-T8V"/>
                         </constraints>
                     </view>
                     <connections>

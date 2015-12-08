@@ -12,7 +12,7 @@ class DismissKeyboardController: UIViewController {
     
     // create toolbar to act as accessory view for UIPickerView
     // it will contain "Done" and "Cancel" buttons for resigning first-responder status
-    // Used http://stackoverflow.com/a/31728914/2302781 as a guideline
+    // Adapted from http://stackoverflow.com/a/31728914/2302781
     func createToolbar() -> UIToolbar {
         let toolbar = UIToolbar()
         toolbar.barStyle = UIBarStyle.Default

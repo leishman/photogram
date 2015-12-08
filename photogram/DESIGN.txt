@@ -1,18 +1,28 @@
 Design Documentation:
 
 
-Models:
+Breadth:
+- UICollectionView (Postcard list)
+- UIPickerView (Photo Filter)
+- UIToolbar (For keyboards)
+- UITextField (For)
+- Contacts (For retreiving postcard address)
+- CoreData (For managing address and postcard storage)
+- FileSystem (For storing images and tracking storing their path in core data)
+- UIScrollView (For cropping images)
+- Animations (Flipping a Postcard preview after creating a postcard)
+- Gestures (For both starting animations and moving text field on front of postcard)
+- Segue API
+- UIView programmatically built and modified them, going beyond what was done in class
 
-- Postcard
-    - photoUrl
-    - message
-    - address (object?)
+Miscellaneous:
+- UIImage View, used this much more extensively than in class
 
-APIs used:
-- UIPickerView
-- UITextField
-- CoreImage
-- UIToolbar
-- Camera
-- Contacts
+NCIL:
+- Contacts API (Retreiving and formatting contact information from phone, also asking for user's permission to access contacts)
+- Core Image
+
+Depth:
+- CoreImage and overall image manipulation/storage including filters, cropping, etc.
+
 

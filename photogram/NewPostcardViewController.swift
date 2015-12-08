@@ -13,9 +13,11 @@ class NewPostcardViewController: DismissKeyboardController, UIImagePickerControl
     
     // Instance vars
     private var imageView = UIImageView()
+    private var selectedFilterName: String?
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var filterButton: UIButton!
     
+    private var originalImage: UIImage?
     private var image: UIImage? {
         get {
             return imageView.image
@@ -23,6 +25,10 @@ class NewPostcardViewController: DismissKeyboardController, UIImagePickerControl
         
         set {
             // unhide control elements requiring a view
+            if(originalImage == nil) {
+                originalImage = newValue
+            }
+
             filterButton.hidden = false
             nextButton.hidden = false
             imageView.image = newValue
@@ -31,8 +37,16 @@ class NewPostcardViewController: DismissKeyboardController, UIImagePickerControl
     
     private var postcard: Postcard?
     
-    let filterOptions = ["Sepia", "Black and White", "Vintage"]
-    
+    let filterOptions = ["Sepia", "Black and White", "Vintage", "Monochrome", "Chrome", "No Filter"]
+    let filterDictionary = [
+        "Sepia": applySepiaFilter,
+        "Black and White": applyBWFilter,
+        "Vintage": applyVintageFilter,
+        "Monochrome": applyMonochromeFilter,
+        "Chrome": applyChromeFilter,
+        "No Filter": removeFilter
+    ]
+
     let filterPickerView = UIPickerView()
     
     
@@ -122,18 +136,11 @@ class NewPostcardViewController: DismissKeyboardController, UIImagePickerControl
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    // ensure all images are landscape to fit the postcard layout
-    func getRotatedImage(img: UIImage) -> UIImage {
-        if (img.imageOrientation == UIImageOrientation.Up || img.imageOrientation == UIImageOrientation.Down) {
-            return img.imageRotatedByDegrees(90, flip: false)
-        }
-        return img
-    }
-    
     // add image to scroll view for cropping and editing
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?) {
 
-        self.image = getRotatedImage(image)
+        // custom extension in other file
+        self.image = image.stripImageRotation()
         
         // ensure image is scaled to fit in the initial scroll window
         imageView.frame = CGRect(origin: CGPointZero, size: scrollView.frame.size)
@@ -145,12 +152,15 @@ class NewPostcardViewController: DismissKeyboardController, UIImagePickerControl
     }
     
     func doneKeyboard() {
+        applyFilter()
         filterSelectField.resignFirstResponder()
     }
     
     func cancelKeyboard() {
         filterSelectField.resignFirstResponder()
     }
+    
+    // MARK: Image Filters
     
     func applySepiaFilter(ci_image: CIImage) -> CIImage {
         let filter = CIFilter(name: "CISepiaTone")!
@@ -205,24 +215,34 @@ class NewPostcardViewController: DismissKeyboardController, UIImagePickerControl
         return filter.outputImage!
     }
     
-    // TODO: add more complex filters
-    private func applyFilter(name: String) {
-        let ci_image = CIImage(image: image!)!
-        var new_ci_image: CIImage?
-        switch name {
-            case filterOptions[0]:
-                new_ci_image = applySepiaFilter(ci_image)
-            case filterOptions[1]:
-                new_ci_image = applyBWFilter(ci_image)
-            case filterOptions[2]:
-                new_ci_image = applyVintageFilter(ci_image)
-        default:
-            return
-        }
+    func applyMonochromeFilter(ci_image: CIImage) -> CIImage {
         
-        let cg_image = CIContext().createCGImage(new_ci_image!, fromRect: new_ci_image!.extent)
-        image = UIImage(CGImage: cg_image)
+        let filter = CIFilter(name: "CIColorMonochrome")!
+        filter.setValue(ci_image, forKey: kCIInputImageKey)
+        filter.setValue(CIColor(color: UIColor.redColor()), forKey: "inputColor")
+        filter.setValue(0.9, forKey: "inputIntensity")
+        return filter.outputImage!
+    }
+    
+    func applyChromeFilter(ci_image: CIImage) -> CIImage {
+        let filter = CIFilter(name: "CIPhotoEffectChrome")!
+        filter.setValue(ci_image, forKey: kCIInputImageKey)
+        return filter.outputImage!
+    }
+    
+    func removeFilter(ci_image: CIImage) -> CIImage {
+        return ci_image
+    }
+    
+    private func applyFilter() {
+        if let name = selectedFilterName {
+            let ci_image = CIImage(image: originalImage!)!
+            let filterFunc = filterDictionary[name]
+            let new_ci_image = filterFunc!(self)(ci_image)
+            let cg_image = CIContext().createCGImage(new_ci_image, fromRect: new_ci_image.extent)
+            image = UIImage(CGImage: cg_image)
         }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -255,8 +275,7 @@ class NewPostcardViewController: DismissKeyboardController, UIImagePickerControl
     }
     
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let filterName = filterOptions[row]
-        applyFilter(filterName)
+        selectedFilterName = filterOptions[row]
     }
+    
 }
-

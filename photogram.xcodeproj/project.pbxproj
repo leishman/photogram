@@ -45,7 +45,7 @@
 		A24C69971C0A62A100A607B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A24C699A1C0A62A100A607B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A24C699C1C0A62A100A607B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A24C69A31C0A987E00A607B4 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		A24C69A31C0A987E00A607B4 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README; path = photogram/README; sourceTree = "<group>"; };
 		A24C69A51C0AA45D00A607B4 /* Postcard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Postcard.swift; sourceTree = "<group>"; };
 		A24C69A91C0B54DE00A607B4 /* NewPostcardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostcardViewController.swift; sourceTree = "<group>"; };
 		A2BD39F11C0D7273000FB9EA /* PostcardTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostcardTextViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +70,7 @@
 		A24C69811C0A62A100A607B4 = {
 			isa = PBXGroup;
 			children = (
+				A24C69A31C0A987E00A607B4 /* README */,
 				A24C698C1C0A62A100A607B4 /* photogram */,
 				A24C698B1C0A62A100A607B4 /* Products */,
 			);
@@ -114,7 +115,6 @@
 				A24C69971C0A62A100A607B4 /* Assets.xcassets */,
 				A24C69991C0A62A100A607B4 /* LaunchScreen.storyboard */,
 				A24C699C1C0A62A100A607B4 /* Info.plist */,
-				A24C69A31C0A987E00A607B4 /* README */,
 				A24C69941C0A62A100A607B4 /* photogram.xcdatamodeld */,
 			);
 			name = "Supporting Files";

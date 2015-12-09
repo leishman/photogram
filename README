@@ -14,7 +14,9 @@ Breadth:
 - Animations (Flipping a Postcard preview after creating a postcard)
 - Gestures (For both starting animations and moving text field on front of postcard)
 - Segue API
+- Alerts (Created alert code shared throughout app)
 - UIView programmatically built and modified them, going beyond what was done in class
+- ApplePay (got some basics working, but Apple has frozen part of my dev account and I cannot get a merchant cert)
 
 Miscellaneous:
 - UIImage View, used this much more extensively than in class

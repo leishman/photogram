@@ -19,7 +19,6 @@
 		A24C69961C0A62A100A607B4 /* photogram.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A24C69941C0A62A100A607B4 /* photogram.xcdatamodeld */; };
 		A24C69981C0A62A100A607B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A24C69971C0A62A100A607B4 /* Assets.xcassets */; };
 		A24C699B1C0A62A100A607B4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A24C69991C0A62A100A607B4 /* LaunchScreen.storyboard */; };
-		A24C69A41C0A987E00A607B4 /* README in Resources */ = {isa = PBXBuildFile; fileRef = A24C69A31C0A987E00A607B4 /* README */; };
 		A24C69A61C0AA45D00A607B4 /* Postcard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24C69A51C0AA45D00A607B4 /* Postcard.swift */; };
 		A24C69AA1C0B54DE00A607B4 /* NewPostcardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24C69A91C0B54DE00A607B4 /* NewPostcardViewController.swift */; };
 		A2BD39F21C0D7273000FB9EA /* PostcardTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BD39F11C0D7273000FB9EA /* PostcardTextViewController.swift */; };
@@ -45,7 +44,6 @@
 		A24C69971C0A62A100A607B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A24C699A1C0A62A100A607B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A24C699C1C0A62A100A607B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A24C69A31C0A987E00A607B4 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README; path = photogram/README; sourceTree = "<group>"; };
 		A24C69A51C0AA45D00A607B4 /* Postcard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Postcard.swift; sourceTree = "<group>"; };
 		A24C69A91C0B54DE00A607B4 /* NewPostcardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostcardViewController.swift; sourceTree = "<group>"; };
 		A2BD39F11C0D7273000FB9EA /* PostcardTextViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostcardTextViewController.swift; sourceTree = "<group>"; };
@@ -70,7 +68,6 @@
 		A24C69811C0A62A100A607B4 = {
 			isa = PBXGroup;
 			children = (
-				A24C69A31C0A987E00A607B4 /* README */,
 				A24C698C1C0A62A100A607B4 /* photogram */,
 				A24C698B1C0A62A100A607B4 /* Products */,
 			);
@@ -87,9 +84,7 @@
 		A24C698C1C0A62A100A607B4 /* photogram */ = {
 			isa = PBXGroup;
 			children = (
-				A2BD39F91C0E1131000FB9EA /* Address+CoreDataProperties.swift */,
-				A2BD39FA1C0E1131000FB9EA /* Address.swift */,
-				A2BD39FB1C0E1131000FB9EA /* Postcard+CoreDataProperties.swift */,
+				A25A39441C17EB5000928BBA /* Core Data */,
 				A24C698F1C0A62A100A607B4 /* HomeViewController.swift */,
 				A24C69A91C0B54DE00A607B4 /* NewPostcardViewController.swift */,
 				A2BD39F11C0D7273000FB9EA /* PostcardTextViewController.swift */,
@@ -101,7 +96,6 @@
 				A20420981C14084A00D49A3C /* PostcardPreviewViewController.swift */,
 				A20420941C13FDE500D49A3C /* KeyboardToolbarDelegate.swift */,
 				A20420921C13595700D49A3C /* PostcardViewCell.swift */,
-				A24C69A51C0AA45D00A607B4 /* Postcard.swift */,
 				A24C69911C0A62A100A607B4 /* Main.storyboard */,
 				A24C69A21C0A6E6500A607B4 /* Supporting Files */,
 			);
@@ -118,6 +112,17 @@
 				A24C69941C0A62A100A607B4 /* photogram.xcdatamodeld */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A25A39441C17EB5000928BBA /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				A2BD39F91C0E1131000FB9EA /* Address+CoreDataProperties.swift */,
+				A2BD39FA1C0E1131000FB9EA /* Address.swift */,
+				A2BD39FB1C0E1131000FB9EA /* Postcard+CoreDataProperties.swift */,
+				A24C69A51C0AA45D00A607B4 /* Postcard.swift */,
+			);
+			name = "Core Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,7 +183,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A24C69A41C0A987E00A607B4 /* README in Resources */,
 				A24C699B1C0A62A100A607B4 /* LaunchScreen.storyboard in Resources */,
 				A24C69981C0A62A100A607B4 /* Assets.xcassets in Resources */,
 				A24C69931C0A62A100A607B4 /* Main.storyboard in Resources */,

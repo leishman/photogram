@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PassKit
 
 class PostcardPreviewViewController: UIViewController {
     var frontView: UIImageView?
@@ -14,6 +15,8 @@ class PostcardPreviewViewController: UIViewController {
     var showingBack = false
 
     @IBOutlet weak var postcardView: UIView!
+    let supportedPaymentNetworks = [PKPaymentNetworkAmex, PKPaymentNetworkVisa, PKPaymentNetworkMasterCard]
+    let applePayMerchantId = "merchant.com.leishman.photogram"
     
     var postcard: Postcard? {
         didSet {
@@ -27,6 +30,28 @@ class PostcardPreviewViewController: UIViewController {
                     setupTapGesture()
                 }
             }
+        }
+    }
+    
+    @IBAction func checkoutAction(sender: UIButton) {
+        let request = PKPaymentRequest()
+        request.merchantIdentifier = applePayMerchantId
+        request.supportedNetworks = supportedPaymentNetworks
+        request.merchantCapabilities = PKMerchantCapability.Capability3DS
+        request.countryCode = "US"
+        request.currencyCode = "USD"
+        request.paymentSummaryItems = [
+            PKPaymentSummaryItem(label: "Postcard", amount: 100)
+        ]
+        
+        let applePayController = PKPaymentAuthorizationViewController(paymentRequest: request)
+        applePayController.delegate = self
+        
+        // conditionally display payment information
+        if(!PKPaymentAuthorizationViewController.canMakePaymentsUsingNetworks(supportedPaymentNetworks)) {
+            AppDelegate.getAppDelegate().showMessage("Device Cannot Make Payments")
+        } else {
+            self.presentViewController(applePayController, animated: true, completion: nil)
         }
     }
     
@@ -56,5 +81,15 @@ class PostcardPreviewViewController: UIViewController {
             showingBack = true
         }
         
+    }
+}
+
+extension PostcardPreviewViewController: PKPaymentAuthorizationViewControllerDelegate {
+    func paymentAuthorizationViewController(controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, completion: (PKPaymentAuthorizationStatus) -> Void) {
+        // when authorized
+    }
+    
+    func paymentAuthorizationViewControllerDidFinish(controller: PKPaymentAuthorizationViewController) {
+        // when finished payment
     }
 }

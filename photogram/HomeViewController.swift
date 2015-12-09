@@ -53,9 +53,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     private func photoForIndexPath(indexPath: NSIndexPath) -> UIImage? {
-        // TODO
         let pcard = postcards[indexPath.row]
-        
         return pcard.getUIImage()
     }
     
@@ -75,31 +73,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        // TODO
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! PostcardViewCell
-//        cell.contentView.frame = cell.bounds
-//        cell.contentView.autoresizingMask = [UIViewAutoresizing.FlexibleHeight]
         let photo = photoForIndexPath(indexPath)
         cell.postcardImage.image = photo
-//        cell.backgroundColor = UIColor.blueColor()
-//        print("width: \(photo?.size.width), height: \(photo?.size.height)")
         return cell
     }
     
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-//        print("size called")
-//        let w = postcardCollectionView.bounds.width
-//        let h = w * 2 / 3
-//        return CGSize(width: w, height: h)
-//    }
-
-    
 }
 
-//extension HomeViewController: UICollectionViewDelegateFlowLayout {
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-//        let w = postcardCollectionView.bounds.width
-//        let h = w * 2 / 3
-//        return CGSize(width: w, height: h)
-//    }
-//}

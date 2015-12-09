@@ -13,14 +13,14 @@ extension UIImage {
     
     // inspired by: http://stackoverflow.com/a/29753437/2302781
     public func stripImageRotation() -> UIImage {
-        
-        // calculate the size of the rotated view's containing box for our drawing space
-        let newFrame = UIView(frame: CGRect(origin: CGPointZero, size: size))
-        
+        let newFrame = UIView(frame: CGRect(origin: CGPointZero, size: self.size))
+
+        // calculate the size of the new view's containing box for our drawing space
         let newSize = newFrame.frame.size
         
         // Create the image context
         UIGraphicsBeginImageContext(newSize)
+        
         let bitmap = UIGraphicsGetCurrentContext()
         
         // Move origin back to middle of image.
@@ -35,8 +35,11 @@ extension UIImage {
         // capture new image
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
+
+        
         
         return newImage
+
     }
 }
 

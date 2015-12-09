@@ -64,6 +64,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="33" id="nrr-KL-2V5"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
                                         <state key="normal" title="+ Create New Postcard">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
@@ -255,8 +256,11 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKo-CK-Of3">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKo-CK-Of3">
                                 <rect key="frame" x="20" y="266" width="63" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="t4x-LY-pFH"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -274,9 +278,9 @@
                                     <action selector="addAddress:" destination="Dff-yJ-8vh" eventType="touchUpInside" id="b5j-OE-w3A"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="No Address Added" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="78F-rQ-cJH">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Address Added" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="3" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="78F-rQ-cJH">
                                 <rect key="frame" x="20" y="312" width="560" height="21"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -300,14 +304,14 @@
                             <constraint firstItem="XqU-Ix-8Nj" firstAttribute="top" secondItem="78F-rQ-cJH" secondAttribute="bottom" constant="13" id="4Mt-Cr-JOy"/>
                             <constraint firstItem="PPx-7W-NXu" firstAttribute="top" secondItem="L1F-8g-Fez" secondAttribute="bottom" constant="8" symbolic="YES" id="Akt-uU-hTs"/>
                             <constraint firstItem="Wfh-of-zZO" firstAttribute="top" secondItem="XcU-B7-kUe" secondAttribute="bottom" constant="186" id="KCc-Ej-BPt"/>
+                            <constraint firstItem="IKo-CK-Of3" firstAttribute="leading" secondItem="78F-rQ-cJH" secondAttribute="leading" id="LAf-UT-TVf"/>
+                            <constraint firstItem="IKo-CK-Of3" firstAttribute="top" secondItem="PPx-7W-NXu" secondAttribute="bottom" constant="31" id="Lhg-Rk-wzU"/>
                             <constraint firstItem="PPx-7W-NXu" firstAttribute="leading" secondItem="Jdm-qJ-6A3" secondAttribute="leadingMargin" id="MP8-EF-UGZ"/>
+                            <constraint firstItem="78F-rQ-cJH" firstAttribute="top" secondItem="IKo-CK-Of3" secondAttribute="bottom" constant="25" id="MSg-hQ-I65"/>
                             <constraint firstItem="XcU-B7-kUe" firstAttribute="leading" secondItem="XqU-Ix-8Nj" secondAttribute="leading" id="O56-gZ-Fbq"/>
+                            <constraint firstItem="IKo-CK-Of3" firstAttribute="leading" secondItem="PPx-7W-NXu" secondAttribute="leading" id="Ydc-ZJ-8kv"/>
                             <constraint firstItem="78F-rQ-cJH" firstAttribute="leading" secondItem="XqU-Ix-8Nj" secondAttribute="leading" id="a0Y-PZ-GDY"/>
                             <constraint firstItem="XqU-Ix-8Nj" firstAttribute="trailing" secondItem="XcU-B7-kUe" secondAttribute="trailing" id="cdd-1x-l4a"/>
-                            <constraint firstItem="78F-rQ-cJH" firstAttribute="leading" secondItem="IKo-CK-Of3" secondAttribute="leading" id="csp-Uq-ihc"/>
-                            <constraint firstItem="78F-rQ-cJH" firstAttribute="top" secondItem="IKo-CK-Of3" secondAttribute="bottom" constant="25" id="iEO-cm-mE2"/>
-                            <constraint firstItem="IKo-CK-Of3" firstAttribute="top" secondItem="PPx-7W-NXu" secondAttribute="bottom" constant="31" id="if1-8q-wa6"/>
-                            <constraint firstItem="PPx-7W-NXu" firstAttribute="leading" secondItem="IKo-CK-Of3" secondAttribute="leading" id="m6I-fO-YBf"/>
                             <constraint firstItem="XcU-B7-kUe" firstAttribute="top" secondItem="XqU-Ix-8Nj" secondAttribute="bottom" constant="8" symbolic="YES" id="okf-Zc-HRb"/>
                             <constraint firstItem="78F-rQ-cJH" firstAttribute="trailing" secondItem="PPx-7W-NXu" secondAttribute="trailing" id="pIH-45-upi"/>
                             <constraint firstItem="PPx-7W-NXu" firstAttribute="top" secondItem="Jdm-qJ-6A3" secondAttribute="top" constant="121" id="t0l-qf-ZrL"/>
@@ -337,13 +341,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufP-lV-fHk">
-                                <rect key="frame" x="20" y="550" width="560" height="30"/>
-                                <color key="backgroundColor" red="0.49019607840000001" green="0.74901960779999999" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Send">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2o-ha-R78">
                                 <rect key="frame" x="20" y="72" width="560" height="374"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -357,17 +354,31 @@
                                 <color key="textColor" red="0.81779100530000004" green="0.81779100530000004" blue="0.81779100530000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ufP-lV-fHk">
+                                <rect key="frame" x="228" y="525" width="144" height="55"/>
+                                <color key="backgroundColor" red="0.49019607840000001" green="0.74901960779999999" blue="0.52941176469999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="OE4-Q9-j7R"/>
+                                    <constraint firstAttribute="width" constant="144" id="bBZ-Jv-U5r"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="ApplePayButton">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkoutAction:" destination="fek-xN-Gbf" eventType="touchUpInside" id="LbE-Yk-dWD"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="ufP-lV-fHk" secondAttribute="bottom" constant="20" symbolic="YES" id="2vT-2Z-RqF"/>
                             <constraint firstItem="M2o-ha-R78" firstAttribute="top" secondItem="YGA-EO-jcE" secondAttribute="bottom" constant="8" symbolic="YES" id="5DE-hT-rzy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="M2o-ha-R78" secondAttribute="trailing" id="A68-4L-bwg"/>
                             <constraint firstItem="leO-0z-jIa" firstAttribute="top" secondItem="M2o-ha-R78" secondAttribute="bottom" constant="23" id="Ltx-Hc-O70"/>
-                            <constraint firstItem="ufP-lV-fHk" firstAttribute="leading" secondItem="qat-eG-dbj" secondAttribute="leadingMargin" id="MvW-lw-6Z7"/>
-                            <constraint firstItem="ufP-lV-fHk" firstAttribute="centerX" secondItem="M2o-ha-R78" secondAttribute="centerX" id="YMw-KN-gRi"/>
+                            <constraint firstAttribute="bottom" secondItem="ufP-lV-fHk" secondAttribute="bottom" constant="20" symbolic="YES" id="R5L-jo-yql"/>
                             <constraint firstItem="M2o-ha-R78" firstAttribute="leading" secondItem="qat-eG-dbj" secondAttribute="leadingMargin" id="ck1-zI-Vfa"/>
                             <constraint firstItem="leO-0z-jIa" firstAttribute="centerX" secondItem="qat-eG-dbj" secondAttribute="centerX" id="nZm-3T-T8V"/>
+                            <constraint firstItem="ufP-lV-fHk" firstAttribute="centerX" secondItem="leO-0z-jIa" secondAttribute="centerX" id="pNX-sc-tG0"/>
+                            <constraint firstItem="ufP-lV-fHk" firstAttribute="top" secondItem="leO-0z-jIa" secondAttribute="bottom" constant="35" id="vCU-ns-84G"/>
                         </constraints>
                     </view>
                     <connections>
@@ -509,4 +520,7 @@
             <point key="canvasLocation" x="82" y="351"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="ApplePayButton" width="140" height="55"/>
+    </resources>
 </document>

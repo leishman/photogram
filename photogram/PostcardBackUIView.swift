@@ -55,6 +55,4 @@ class PostcardBackUIView: UIView {
         addrField.text = addrString
         self.addSubview(addrField)
     }
-    
-    
 }
